@@ -12,6 +12,6 @@ public class PredicateDemo {
 
         List<Integer> list = List.of(2,5,7,8,9,3,1,0,25,15,10,30);
         System.out.println(p.test(21));
-        System.out.println(list.stream().filter(p.and(p2)).collect(Collectors.toList()));
+        //System.out.println(list.stream().filter(p.and(p2)).collect(Collectors.toList()));
     }
 }
