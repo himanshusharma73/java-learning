@@ -20,16 +20,15 @@ public class Top3Student{
         list.add(new Student(12,"ashutosh",70,"Electrical"));
         list.add(new Student(13,"shubham",73,"Electrical"));
         list.add(new Student(14,"aaaa",76,"Electrical"));
+
         top3Student(list).forEach(System.out::println);
 
         System.out.println("\n\n**********************\n\n");
-        Map<String, List<Student>> collect = list.stream().sorted(Comparator.comparing(Student::getBranch)
-                .thenComparing(Student::getPercentage)).collect(Collectors.groupingBy(Student::getBranch));
-        collect.forEach((k,v) ->
-        {
-            System.out.println(k);
-            v.forEach(System.out::println);
-        });
+        List<Student> collect = list.stream().sorted(Comparator.comparing(Student::getBranch)
+                .thenComparing(Student::getPercentage)).collect(Collectors.groupingBy(Student::getBranch)).values()
+                .stream().flatMap(l -> l.stream().limit(3)).collect(Collectors.toList());
+
+
     }
 
     public static void top3StudentByBranch(List<Student> list){
@@ -80,10 +79,12 @@ public class Top3Student{
 //                .collect(Collectors.toList());
 //    }
 
-    public static List<Student> top3Student(List<Student> list){
+
+
+    private static List<Student> top3Student(List<Student> list) {
         return list.stream().sorted(Comparator.comparing(Student::getBranch).thenComparing(Student::getPercentage))
                 .collect(Collectors.groupingBy(Student::getBranch,LinkedHashMap::new,Collectors.toList()))
-                .values().stream().flatMap(l -> l.stream().limit(3)).collect(Collectors.toList());
+                .values().stream().flatMap( l -> l.stream().limit(3)).collect(Collectors.toList());
     }
 
 
