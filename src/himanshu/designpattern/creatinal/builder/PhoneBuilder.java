@@ -7,27 +7,27 @@ public class PhoneBuilder {
     private String processor;
     private double display;
 
-    public PhoneBuilder setOs(String os) {
+    public PhoneBuilder os(String os) {
         this.os = os;
         return this;
     }
 
-    public PhoneBuilder setRam(int ram) {
+    public PhoneBuilder ram(int ram) {
         this.ram = ram;
         return this;
     }
 
-    public PhoneBuilder setBattery(int battery) {
+    public PhoneBuilder battery(int battery) {
         this.battery = battery;
         return this;
     }
 
-    public PhoneBuilder setProcessor(String processor) {
+    public PhoneBuilder processor(String processor) {
         this.processor = processor;
         return this;
     }
 
-    public PhoneBuilder setDisplay(double display) {
+    public PhoneBuilder display(double display) {
         this.display = display;
         return this;
     }

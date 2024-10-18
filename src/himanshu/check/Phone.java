@@ -1,8 +1,8 @@
-package himanshu.designpattern.creatinal.builder;
+package himanshu.check;
 
 import lombok.Builder;
 
-//@Builder
+@Builder
 public class Phone {
     private String os;
     private int ram;
@@ -31,7 +31,4 @@ public class Phone {
         this.display = display;
     }
 
-    public static PhoneBuilder builder(){
-        return new PhoneBuilder();
-    }
 }
